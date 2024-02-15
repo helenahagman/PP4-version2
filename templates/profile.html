@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Main Content-->
+<section>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <img class="img-fluid"
+                        src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1692358156/healthclub-pp4/pexels-victor-freitas-703014_mwhg9x.jpg"
+                        alt="Gym">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <h5 class="display-4">Profile Page</h5>
+                    <h2>{{ user.get_full_name }}</h2>
+                    <p><span class="fw-bold">Username:</span> {{ user.username }}</p>
+                    <p><span class="fw-bold">Email:</span> {{ user.email }}</p>
+                    <p><span class="fw-bold">First Name:</span> {{ user.profile.first_name_profile }}</p>
+                    <p><span class="fw-bold">Last Name:</span> {{ user.profile.last_name_profile }}</p>
+                    <p><span class="fw-bold">Phone:</span> {{ user.profile.phone_number }}</p>
+                    <a href="{% url 'edit_profile' %}">Edit Profile</a>
+                </div>
+            </div>
+        <div class="col-lg-12">
+            {% if bookings %}
+                <h5>Booking Requests:</h5>
+                <ul>
+                    {% for booking in bookings %}
+                        <li>{{ booking.date }} - {{ booking.status }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No booking requests.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
