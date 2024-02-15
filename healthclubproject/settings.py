@@ -34,7 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-helenahagma-pp4version2-el4zqrnmr0o.ws-eu108.gitpod.io',
-    'https://pp4-version2-cb4c0cb8c9b5.herokuapp.com/'
+    'https://pp4-version2-cb4c0cb8c9b5.herokuapp.com/',
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
@@ -172,14 +172,9 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-cloudinary.config(
-        cloud_name=os.environ['CLOUD_NAME'],
-        api_key=os.environ['API_KEY'],
-        api_secret=os.environ['API_SECRET']
-)
 
 CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': os.environ['CLOUD_NAME'],
+        'CLOUDINARY_URL': os.environ['CLOUD_NAME'],
         'API_KEY': os.environ['API_KEY'],
         'API_SECRET': os.environ['API_SECRET'],
 }
