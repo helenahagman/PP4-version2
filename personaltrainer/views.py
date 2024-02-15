@@ -14,7 +14,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.conf import settings
 from allauth.account.views import SignupView
 from allauth.account.forms import SignupForm
-from .models import Profile, Contact, Session, Booking
+from .models import Profile, Contact, Booking
 from .forms import ContactForm, BookingForm, ProfileForm, SignUpForm, MemberCommentForm
 
 
@@ -62,7 +62,7 @@ class BookView(View):
             booking_instance.user = request.user
             booking_instance.save()
             messages.success(request, 'Your session has been booked')
-                return redirect('profile_view')
+            return redirect('profile_view')
 
         return render(request, self.template_name, {'form': form})
 
