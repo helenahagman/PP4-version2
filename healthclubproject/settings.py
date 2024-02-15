@@ -33,7 +33,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-helenahagma-pp4version2-el4zqrnmr0o.ws-eu108.gitpod.io'
+    '8000-helenahagma-pp4version2-el4zqrnmr0o.ws-eu108.gitpod.io',
+    'https://pp4-version2-cb4c0cb8c9b5.herokuapp.com/'
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
