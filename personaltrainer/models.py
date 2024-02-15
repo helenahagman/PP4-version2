@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
-from ptproject.utils import num_validation, alpha_only
+from personaltrainer.utils import num_validation, alpha_only
 
 
 class Booking(models.Model):
