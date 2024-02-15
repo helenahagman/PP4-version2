@@ -35,6 +35,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '8000-helenahagma-pp4version2-el4zqrnmr0o.ws-eu108.gitpod.io',
     'https://pp4-version2-cb4c0cb8c9b5.herokuapp.com/',
+    '*.ws-eu108.gitpod.io',
+    'localhost',
+
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
@@ -157,6 +160,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.gitpod.io',
+    'https://pp4-version2-cb4c0cb8c9b5.herokuapp.com/',
 
 ]
 
