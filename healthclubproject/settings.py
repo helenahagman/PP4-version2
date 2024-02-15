@@ -178,9 +178,10 @@ SITE_ID = 1
 
 
 CLOUDINARY_STORAGE = {
-        'CLOUDINARY_URL': os.environ['CLOUD_NAME'],
-        'API_KEY': os.environ['API_KEY'],
-        'API_SECRET': os.environ['API_SECRET'],
+        'CLOUDINARY_URL': os.environ['CLOUDINARY_URL'],
+        'CLOUDINARY_CLOUD_NAME': os.environ['CLOUDINARY_CLOUD_NAME']
+        'CLOUDINARY_API_KEY': os.environ['CLOUDINARY_API_KEY'],
+        'CLOUDINARY_API_SECRET': os.environ['CLOUDINARY_API_SECRET'],
 }
 
 # Default file storage for media files

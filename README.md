@@ -667,13 +667,15 @@ I wanted to build a good looking website where the functionality for online book
 </ul>
 
 <h4>Deployment</h4>
-<a>Deployment to heroku</a>
+<a>Deployment to heroku using the following steps</a>
 <ol>
-<li>Account settings</li>
-<li>Copy the API key</li>
-<li>Enter the command: heroku_config , and enter the API key</li>
-<li>Enter heroku username</li>
-<li>Enter the API key</li>
+<li>Created the app in heroku</li>
+<li>Updated config vars in heroku</li>
+<li>Added Procfile and env.py file</li>
+<li>Connected the app to the github repository</li>
+<li>Connected the gitpod workspace to heroku</li>
+<li>Updated allowed hosts</li>
+<li>Deployed successfully after a few pointers from tutor support<li>
 </ol>
 
 <h4>Credits</h4>
