@@ -28,7 +28,7 @@
                     <p>Want to become a member? 
                         <a class="link" href="{% url 'account_signup' %}">Register</a>
                     </p>
-                    <form class="login" method="POST" action="{% url 'login' %}">
+                    <form class="login" method="POST" action="{% url 'account_login' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button id="signInButton" type="submit" class="btn btn-primary" style="width: 30%">
