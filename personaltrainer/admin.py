@@ -3,7 +3,7 @@ from .models import Profile, Contact, Booking, Trainer, SessionType
 from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Booking)
-class BookinAdmin(SummernoteModelAdmin):
+class BookingAdmin(SummernoteModelAdmin):
     list_display = ('user', 'trainer_name', 'session_type', 'date', 'time', 'name', 'phonenumber', 'email', 'age', 'gender', 'message', 'approved')
     search_fields = ('name', 'trainer_name', 'session_type', 'approved')  
     list_filter = ('trainer_name', 'session_type', 'date', 'approved')  
@@ -28,4 +28,3 @@ class ProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(Trainer)
 admin.site.register(SessionType)
-# admin.site.register(Booking)
