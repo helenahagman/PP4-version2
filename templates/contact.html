@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
                     <h3>{% trans "Contact" %}</h3>
-                    <form onsubmit="return sendMail(this)" id="contactForm" class="contact" method="POST" action="{% url 'contact' %}">
+                    <form onsubmit="sendMail(this, event)" id="contactForm" class="contact" method="POST" action="{% url 'contact' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button id="sendButton" type="submit" class="btn btn-primary" style="width: 30%">
@@ -42,21 +42,25 @@
 </div>
 
 <script type="text/javascript">
-    function sendMail(contactForm) {
-            emailjs.init({publicKey: "RO0elmR_iHiWZiyEO",});
-            var templateParams = {
-            name: 'James',
-            notes: 'Check this out!'
+    emailjs.init("RO0elmR_iHiWZiyEO");
+
+    function sendMail(contactForm, event) {
+        event.preventDefault();
+            
+        var templateParams = {
+            name: contactForm.name_contact.value,
+            notes: contactForm.contact_message.value
         };
-            emailjs.send('service_b8gz1av', 'template_8j0ugds', templateParams).then(
-            (response) => {
+        
+        emailjs.send('service_b8gz1av', 'template_8j0ugds', templateParams)
+            .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
-            },
-            (error) => {
-                console.log('FAILED...', error);
-            },
-        );
-        };
+                alert("Thank you for contacting us, you will hear from us shortly!");
+                contactForm.reset();
+            }, function(error) {
+                console.log("Ooops, something went wrong. Try again.");
+            });
+    }
 </script>
 
 {% endblock %}
