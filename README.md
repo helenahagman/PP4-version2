@@ -69,6 +69,7 @@ Happy coding!
 <h4>Technology</h4>
 <ul>
 <li>Frameworks, Libraries & Programs Used</li>
+<li>Database tables</li>
 </ul>
 
 <h4>Testing</h4>
@@ -249,6 +250,70 @@ I wanted to build a good looking website where the functionality for online book
   <li>Miro - wireframes</li>
   <li>Pexels - images</li>
 </ul>
+
+<h3>Database tables</h3>
+
+User Table (Djangos built in User model)
+
+| Key        | Name          | Type           |
+| ---------- | ------------- | -------------- |
+| PrimaryKey | id            |                |
+|            | username      |                |
+|            | password      |                |
+|            | email         |                |
+|            | first_name    |                |
+|            | last_name     |                |
+
+
+Profile Table
+
+| Key        | Name                 | Type          |
+| ---------- | -------------------- | ------------- |
+| PrimaryKey | id                   | AutoField     |
+| 	         | user_id              | OneToOneField |
+|            | email                | EmailField    |
+|            | phone_number         | CharField     |
+|            | first_name           | CharField     |
+|            | last_name            | CharField     |
+
+Contact Table
+
+| Key        | Name             | Type           |
+| ---------- | ---------------- | -------------- |
+| PrimaryKey | id               | AutoField      |
+|            | name_contact     | CharField      |
+|            | email            | EmailField     |
+|            | contact_message  | TextField      |
+|            | created_on       | DateTimeField  |
+
+Booking Table
+
+| Key        | Name         | Type            |
+| ---------- | ------------ | --------------- |
+| PrimaryKey | id           | AutoField       |
+| ForeignKey | user_id      |                 |
+|            | trainer_name | CharField       |
+|            | session_type | CharField       |
+|            | date         | DateField       |
+|            | time         | TimeField       |
+|            | name         | CharField       |
+|            | phonenumber  | CharField       |
+|            | email        | EmailField      |
+|            | age          | IntegerField    |
+|            | gender       | CharField       |
+|            | message      | TextField       |
+|            | approved     | BooleanField    |
+
+MemberComment Table
+
+| Key        | Name       | Type          |
+| ---------- | ---------- | ------------- |
+| PrimaryKey | id         | AutoField     |
+| ForeignKey | user_id    |               |
+|            | comment    | TextField     |
+|            | photo      | ImageField    |
+|            | created_at | DateTimeField |
+
 
 <h2>Testing</h2>
 <p>Testing features, accessibility, links, responsiveness have been done throughout the project and after every step of the way tests have been performed to make sure that the new inserts has been working correctly and corrected thereafter.</p>
