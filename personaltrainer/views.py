@@ -197,15 +197,10 @@ def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            contact_instance = form.save(commit=False)
-            contact_instance.save()
-
-            name_contact = form.cleaned_data['name_contact']
-            email = form.cleaned_data['email']
-            contact_message = form.cleaned_data['contact_message']
+            form.save()
             
-            messages.success(request, 'Your message has been sent.')
-            return HttpResponseRedirect('/success/')
+            messages.success(request, 'Your message has been sent, we will reply shortly.')
+            return render(request, 'contact.html', {'form': ContactForm()})
     else:
         form = ContactForm()
     

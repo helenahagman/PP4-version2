@@ -5,6 +5,17 @@
 
 {% block content %}
 <div class="container">
+    {% if messages %}
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
     <div class="row justify-content-center">
         <div class="col-lg-6 mb-4">
             <div class="card">
@@ -30,23 +41,3 @@
     </div>
 </div>
 {% endblock %}
-
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        var templateParams = {
-            name_contact: this.elements["name_contact"].value,
-            email: this.elements["email"].value,
-            contact_message: this.elements["contact_message"].value,
-        };
-
-        emailjs.sendForm('service_b8gz1av', 'template_8j0ugds', templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-            }, function(error) {
-                console.log('FAILED...', error);
-            });
-    });
-</script>
