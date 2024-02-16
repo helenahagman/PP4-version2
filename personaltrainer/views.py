@@ -33,7 +33,7 @@ class PersonalTrainerView(View):
         return render(request, 'personaltrainer.html')
 
 
-class membersonlyView(View):
+class MembersonlyView(View):
     """
     Implementation for the Membersonly view
     """
@@ -90,9 +90,11 @@ class ProfileView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         user = request.user
         profile, created = Profile.objects.get_or_create(user=user)
+        form = ProfileForm(instance=profile)
         bookings = Booking.objects.filter(user=user)
 
         context = {
+            'form': form,
             'user': user,
             'profile': profile,
             'bookings': bookings,
@@ -102,19 +104,6 @@ class ProfileView(LoginRequiredMixin, View):
     
     
     def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
-
-
-class EditProfileView(LoginRequiredMixin, View):
-    template_name = 'edit_profile.html'
-
-    def get(self, request, *args, **kwargs):
-        user = request.user
-        profile, created = Profile.objects.get_or_create(user=user)
-        form = ProfileForm(instance=profile)
-        return render(request, self.template_name, {'form': form})
-    
-    def post(self, request, *args, **kwargs):
         user = request.user
         profile, created = Profile.objects.get_or_create(user=user)
         form = ProfileForm(request.POST, instance=profile)
@@ -122,7 +111,9 @@ class EditProfileView(LoginRequiredMixin, View):
             form.save()
             messages.success(request, 'Profile updated successfully')
             return redirect('profile_view')
-        return render(request, self.template_name, {'form': form})
+        bookings = Booking.objects.filter(user=user)
+        return render(request, self.template_name, {'form': form, 'user': user, 'profile': profile, 'bookings': bookings})
+
 
 
 def signup(request):
@@ -233,8 +224,6 @@ def book_session(request, session_id):
         messages.error(request, 'This session is already booked')
         return render(request, 'session_already_booked.html')
 
-def sessions_calendar(request):
-    return render(request, 'sessions_calendar.html')
 
 def sessions_api(request):
     sessions = Session.objects.filter(booked=False)
@@ -289,6 +278,7 @@ def book(request):
     }
     return render(request, 'book.html', context)
 
+@login_required
 def membersonly(request):
     if request.method == 'POST':
         form = MemberCommentForm(request.POST, request.FILES)
