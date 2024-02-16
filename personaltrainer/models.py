@@ -10,8 +10,8 @@ class Booking(models.Model):
     Create a booking request form for a personal trainer session
     """
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    trainer_name = models.CharField(max_length=100)
-    session_type = models.CharField(max_length=100)
+    trainer_name = models.ForeignKey('Trainer', on_delete=models.CASCADE)
+    session_type = models.ForeignKey('SessionType', on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
     name = models.CharField(max_length=100, default='State your name')
@@ -32,6 +32,17 @@ class Booking(models.Model):
     def __str__(self):
         return f'Booking by {self.user.username} for {self.session_type} session with {self.trainer_name} on {self.date} at {self.time}'
 
+class Trainer(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class SessionType(models.Model):
+    type = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.type
 
 class Contact(models.Model):
     """

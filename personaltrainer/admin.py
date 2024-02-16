@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Profile, Contact, Booking
+from .models import Profile, Contact, Booking, Trainer, SessionType
 from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Booking)
 class BookinAdmin(SummernoteModelAdmin):
     list_display = ('user', 'trainer_name', 'session_type', 'date', 'time', 'name', 'phonenumber', 'email', 'age', 'gender', 'message', 'approved')
-    search_fields = ('name', 'trainer_name', 'session_type', 'approved')  # Updated search fields
-    list_filter = ('trainer_name', 'session_type', 'date', 'approved')  # Updated list filters
+    search_fields = ('name', 'trainer_name', 'session_type', 'approved')  
+    list_filter = ('trainer_name', 'session_type', 'date', 'approved')  
     actions = ['approve_booking']
 
     def approve_booking(self, request, queryset):
@@ -23,4 +23,9 @@ class ContactAdmin(admin.ModelAdmin):
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'first_name', 'last_name', 'phone_number', 'email')
     list_filter = ('user',)
-    search_fields = ('user__username', 'first_name', 'last_name', 'phone_number', 'email')  # Updated to use user__username for user field
+    search_fields = ('user__username', 'first_name', 'last_name', 'phone_number', 'email')  
+
+
+admin.site.register(Trainer)
+admin.site.register(SessionType)
+# admin.site.register(Booking)

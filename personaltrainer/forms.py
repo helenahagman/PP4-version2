@@ -18,6 +18,8 @@ class BookingForm(forms.ModelForm):
         fields = ['trainer_name', 'session_type', 'date', 'time', 'name', 'phonenumber', 'email', 'age', 'gender', 'message']
         widgets = {
             'message': forms.Textarea(attrs={'rows': 4}),
+            'trainer_name': forms.Select(),
+            'sessions_type': forms.Select(),
         }
 
 
