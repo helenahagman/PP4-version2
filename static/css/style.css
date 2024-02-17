@@ -40,6 +40,12 @@ body {
     padding-top: 70px;
 }
 
+.display-4 {
+    font-size: calc(1.475rem + 1.7vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
 .masthead {
     margin-top: 100px;
 }
