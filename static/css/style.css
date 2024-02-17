@@ -25,6 +25,17 @@ nav.navbar {
     font-weight: bold;
 }
 
+.subheading {
+    text-align: center;
+}
+
+.site-heading {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 body {
     padding-top: 70px;
 }
