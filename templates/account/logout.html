@@ -20,13 +20,12 @@
                     <h3>{% trans "Log out" %}</h3>
                     <h5>{% blocktrans %} Welcome back! </h5>
                         {% endblocktrans %}
-                    <p>Want to become a member? <a class="link" href="{% url 'account_signup' %}">Register</a>
-                    </p>
-                    <form class="login" method="POST" action="{% url 'account_login' %}">
+                    
+                    <form class="login" method="POST" action="{% url 'account_logout' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
                             <button id="signInButton" type="submit" class="btn btn-primary" style="width: 30%">
-                                Sign Out
+                                Log Out
                             </button>
                     </form>
                 </div>
