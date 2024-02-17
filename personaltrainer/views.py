@@ -147,7 +147,7 @@ def signup(request):
     else:
         form = CustomSignupForm()
 
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'account/signup.html', {'form': form})
 
 
 @csrf_protect
@@ -258,7 +258,7 @@ def signup(request):
         'header': 'Welcome',
         'subheading': 'Make smart choices and live a healthier life.',
     }
-    return render(request, 'signup.html', context)
+    return render(request, 'account/signup.html', context)
 
 def contact(request):
     context = {

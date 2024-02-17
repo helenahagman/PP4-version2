@@ -30,7 +30,7 @@
                     <h5>{% blocktrans %} Welcome back! </h5>
                     {% endblocktrans %}
                     <p>Want to become a member? 
-                        <a class="link" href="{% url 'signup' %}">Register</a>
+                        <a class="link" href="{% url 'account_signup' %}">Sign up</a>
                     </p>
                     <form class="login" method="POST" action="{% url 'login' %}">
                         {% csrf_token %}

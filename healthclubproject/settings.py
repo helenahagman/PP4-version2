@@ -193,6 +193,8 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

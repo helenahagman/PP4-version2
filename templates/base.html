@@ -36,7 +36,6 @@
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
     
-
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
@@ -140,6 +139,14 @@
             Code Institute Project #4
         </p>
     </footer>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init('RO0elmR_iHiWZiyEO');
+        })();
+    </script>
 
     <!-- Bootstrap core JS-->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
