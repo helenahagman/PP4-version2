@@ -122,10 +122,11 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect('profile')  
+            return redirect('profile_view')  
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    context = {'form': form}
+    return render(request, 'account/signup.html', context)
 
 
 class CustomSignupView(SignupView):
@@ -133,11 +134,11 @@ class CustomSignupView(SignupView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['header'] = 'Register now'
+        context['header'] = 'Sign up now'
         context['subheading'] = 'Make smart choices and live a healthier life.'
         return context
         
-def register(request):
+def signup(request):
     if request.method == 'POST':
         form = CustomSignupForm(request.POST)
         if form.is_valid():

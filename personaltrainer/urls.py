@@ -7,6 +7,7 @@ from .views import (
     BookView,
     MemberView,
     ProfileView,
+    SignupView,
     
 )
 
