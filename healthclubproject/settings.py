@@ -48,11 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.auth',
+    'django.contrib.staticfiles',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'cloudinary_storage',
-    'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
     'cloudinary',
@@ -98,12 +98,6 @@ WSGI_APPLICATION = 'healthclubproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 # Ensure DATABASE_URL is decoded if it's bytes
 database_url = os.environ.get("DATABASE_URL")
@@ -113,6 +107,10 @@ if isinstance(database_url, bytes):
 
 # Configure the database settings
 DATABASES = {'default': dj_database_url.parse(database_url)}
+
+# DATABASES = {
+#    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

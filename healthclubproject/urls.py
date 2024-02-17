@@ -22,9 +22,10 @@ from django.urls import path, include, reverse_lazy
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('personaltrainer.urls')),
+    path('', include('personaltrainer.urls'), name='index'),
     path('summernote/', include('django_summernote.urls')),
-    path("accounts/", include("allauth.urls")),
+    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

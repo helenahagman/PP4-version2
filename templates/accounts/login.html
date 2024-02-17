@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
 {% load i18n %}
+{% load static %}
 
 {% block head_title %}{% trans "Log in" %}{% endblock %}
 
@@ -30,9 +30,9 @@
                     <h5>{% blocktrans %} Welcome back! </h5>
                     {% endblocktrans %}
                     <p>Want to become a member? 
-                        <a class="link" href="{% url 'account_signup' %}">Register</a>
+                        <a class="link" href="{% url 'signup' %}">Register</a>
                     </p>
-                    <form class="login" method="POST" action="{% url 'account_login' %}">
+                    <form class="login" method="POST" action="{% url 'login' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button id="signInButton" type="submit" class="btn btn-primary" style="width: 30%">
