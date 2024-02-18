@@ -19,10 +19,16 @@ nav.navbar {
     z-index: 1030;
 }
 
-.navbar-light .navbar-nav .nav-link,
+/* Styling for active nav-link */
+.navbar-light .navbar-nav .nav-item.active .nav-link,
 .navbar-light .navbar-nav .nav-link.active {
-    color: #fff; 
+    color: #6e3dcf;
     font-weight: bold;
+}
+
+/* Hover effect for nav-link */
+.navbar-light .navbar-nav .nav-link:hover {
+    color: black;
 }
 
 .subheading {
