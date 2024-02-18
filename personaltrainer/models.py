@@ -28,6 +28,7 @@ class Booking(models.Model):
     )
     message = models.TextField(max_length=300, default='')
     approved = models.BooleanField(default=False)
+    canceled = models.BooleanField(default=False)
 
     def __str__(self):
         return f'Booking by {self.user.username} for {self.session_type} session with {self.trainer_name} on {self.date} at {self.time}'
