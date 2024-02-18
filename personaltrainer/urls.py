@@ -8,6 +8,7 @@ from .views import (
     MemberView,
     ProfileView,
     SignupView,
+    cancel_booking,
     
 )
 
@@ -24,4 +25,5 @@ urlpatterns = [
     path('account/login/', views.log_in, name='login'),
     path('accounts/logout/', LogoutView.as_view(), name='account_logout'),
     path('contact/', views.contact_view, name='contact'),
+    path('cancel_booking/<int:booking_id>/', cancel_booking, name='cancel_booking'),
 ]

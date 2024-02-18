@@ -27,14 +27,21 @@ class Booking(models.Model):
         default='male'
     )
     message = models.TextField(max_length=300, default='')
-    approved = models.BooleanField(default=False)
-    canceled = models.BooleanField(default=False)
+    # approved = models.BooleanField(default=False)
+    # canceled = models.BooleanField(default=False)
+
+    STATUS_CHOICES = (
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('denied', 'Denied'),
+    )
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
     def __str__(self):
         return f'Booking by {self.user.username} for {self.session_type} session with {self.trainer_name} on {self.date} at {self.time}'
 
     def get_approval_status_display(self):
-        return "Approved" if self.approved else "Pending"
+        return dict(Booking.STATUS_CHOICES)[self.status]
 
 class Trainer(models.Model):
     name = models.CharField(max_length=100)

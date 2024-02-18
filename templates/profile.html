@@ -31,7 +31,14 @@
                 <h5>Your Booking Requests:</h5>
                 <ul>
                     {% for booking in bookings %}
-                        <li>{{ booking.date }} at {{ booking.time }} - Status: {{ booking.get_approval_status_display }}</li>
+                        <li>
+                            {{ booking.date }} at {{ booking.time }} - Status: {{ booking.get_approval_status_display }}
+                            <!-- Cancel Booking Form -->
+                            <form action="{% url 'cancel_booking' booking.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+                            </form>
+                        </li>
                     {% endfor %}
                 </ul>
             {% else %}

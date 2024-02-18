@@ -4,13 +4,18 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Booking)
 class BookingAdmin(SummernoteModelAdmin):
-    list_display = ('user', 'trainer_name', 'session_type', 'date', 'time', 'name', 'phonenumber', 'email', 'age', 'gender', 'message', 'approved')
-    search_fields = ('name', 'trainer_name', 'session_type', 'approved')  
-    list_filter = ('trainer_name', 'session_type', 'date', 'approved')  
-    actions = ['approve_booking']
+    list_display = ('user', 'trainer_name', 'session_type', 'date', 'time', 'name', 'phonenumber', 'email', 'age', 'gender', 'message', 'status')
+    search_fields = ('name', 'trainer_name', 'session_type', 'status')  
+    list_filter = ('trainer_name', 'session_type', 'date', 'status')  
+    actions = ['approve_booking', 'deny_booking']
 
     def approve_booking(self, request, queryset):
-        queryset.update(approved=True)
+        queryset.update(status='approved')
+    approve_booking.short_description = "Approve selected bookings"
+
+    def deny_booking(self, request, queryset):
+        queryset.update(status='denied')
+    deny_booking.short_description = "Deny selected bookings"
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):

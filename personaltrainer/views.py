@@ -289,8 +289,9 @@ def membersonly(request):
 
 @login_required
 def cancel_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
-    booking.canceled = True
-    booking.save()
-    messages.success(request, "Your booking has been successfully canceled.")
+    if request.method == 'POST':
+        booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+        booking.canceled = True
+        booking.save()
+        messages.success(request, "Your booking has been successfully canceled.")
     return redirect('profile_view')
