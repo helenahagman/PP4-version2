@@ -1,10 +1,11 @@
 from django import forms
 from allauth.account.forms import SignupForm
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, get_user_model
 from .models import Contact, Booking, Profile, MemberComment
 
+User = get_user_model()
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -38,6 +39,10 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2',)
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label='Email / Username')
+
 
 class MemberCommentForm(forms.ModelForm):
     class Meta:

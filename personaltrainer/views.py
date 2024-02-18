@@ -15,7 +15,7 @@ from django.conf import settings
 from allauth.account.views import SignupView
 from allauth.account.forms import SignupForm
 from .models import Profile, Contact, Booking
-from .forms import ContactForm, BookingForm, ProfileForm, SignUpForm, MemberCommentForm
+from .forms import ContactForm, BookingForm, ProfileForm, SignUpForm, MemberCommentForm, LoginForm
 
 
 def index(request):
@@ -116,34 +116,34 @@ class ProfileView(LoginRequiredMixin, View):
 
 
 
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            return redirect('profile_view')  
-    else:
-        form = SignUpForm()
-    context = {'form': form}
-    return render(request, 'account/signup.html', context)
+# def signup(request):
+#     if request.method == 'POST':
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+#             return redirect('profile_view')  
+#     else:
+#         form = SignUpForm()
+#     context = {'form': form}
+#     return render(request, 'account/signup.html', context)
 
 
-class CustomSignupView(SignupView):
-    template_name = 'account/signup.html'
+# class CustomSignupView(SignupView):
+#     template_name = 'account/signup.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['header'] = 'Sign up now'
-        context['subheading'] = 'Make smart choices and live a healthier life.'
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['header'] = 'Sign up now'
+#         context['subheading'] = 'Make smart choices and live a healthier life.'
+#         return context
         
 def signup(request):
     if request.method == 'POST':
         form = CustomSignupForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('membersonly')
+            return redirect('profile_view')
     else:
         form = CustomSignupForm()
 
