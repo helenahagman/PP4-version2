@@ -32,6 +32,9 @@ class Booking(models.Model):
     def __str__(self):
         return f'Booking by {self.user.username} for {self.session_type} session with {self.trainer_name} on {self.date} at {self.time}'
 
+    def get_approval_status_display(self):
+        return "Approved" if self.approved else "Pending"
+
 class Trainer(models.Model):
     name = models.CharField(max_length=100)
 
