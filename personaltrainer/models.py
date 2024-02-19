@@ -9,7 +9,9 @@ class Booking(models.Model):
     """
     Create a booking request form for a personal trainer session
     """
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE
+                             )
     trainer_name = models.ForeignKey('Trainer', on_delete=models.CASCADE)
     session_type = models.ForeignKey('SessionType', on_delete=models.CASCADE)
     date = models.DateField()
@@ -34,13 +36,18 @@ class Booking(models.Model):
         ('denied', 'Denied'),
         ('canceled', 'Canceled'),
     )
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES,
+                              default='pending')
 
     def __str__(self):
-        return f'Booking by {self.user.username} for {self.session_type} session with {self.trainer_name} on {self.date} at {self.time}'
+        return (
+            f'Booking by {self.user.username} for {self.session_type} '
+            f'session with {self.trainer_name} on {self.date} at {self.time}'
+        )
 
     def get_approval_status_display(self):
         return dict(Booking.STATUS_CHOICES)[self.status]
+
 
 class Trainer(models.Model):
     name = models.CharField(max_length=100)
@@ -48,11 +55,13 @@ class Trainer(models.Model):
     def __str__(self):
         return self.name
 
+
 class SessionType(models.Model):
     type = models.CharField(max_length=100)
 
     def __str__(self):
         return self.type
+
 
 class Contact(models.Model):
     """
@@ -68,18 +77,26 @@ class Contact(models.Model):
         verbose_name_plural = 'Contact Messages'
 
     def __str__(self):
-        return f'Contact message submitted by {self.name_contact} on {self.created_on}'
+        return (
+            f'Contact message submitted by {self.name_contact}'
+            f'on {self.created_on}'
+        )
 
 
 class Profile(models.Model):
     """
     User profile
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, null=True, blank=True
+        )
     email = models.EmailField(max_length=70, default='default@example.com')
-    phone_number = models.CharField(max_length=20, null=True, blank=True, validators=[num_validation])
-    first_name = models.CharField(max_length=50, null=True, blank=True, validators=[alpha_only])
-    last_name = models.CharField(max_length=50, null=True, blank=True, validators=[alpha_only])
+    phone_number = models.CharField(max_length=20, null=True, blank=True,
+                                    validators=[num_validation])
+    first_name = models.CharField(max_length=50, null=True, blank=True,
+                                  validators=[alpha_only])
+    last_name = models.CharField(max_length=50, null=True, blank=True,
+                                 validators=[alpha_only])
 
     def __str__(self):
         return f'{self.user} profile'
@@ -93,5 +110,3 @@ class MemberComment(models.Model):
     comment = models.TextField()
     photo = models.ImageField(upload_to='member_photos/')
     created_at = models.DateTimeField(auto_now_add=True)
-
-

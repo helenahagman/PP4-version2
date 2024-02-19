@@ -11,10 +11,12 @@ from datetime import date
 
 User = get_user_model()
 
+
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['name_contact', 'email', 'contact_message']
+
 
 def time_choices():
     start = datetime.time(8, 0)
@@ -25,29 +27,33 @@ def time_choices():
     current = start
     while current <= end:
         times.append(current.strftime('%H:%M'))
-        current = (datetime.datetime.combine(datetime.date.today(), current) + interval).time()
+        current = (datetime.datetime.combine(datetime.date.today(),
+                   current) + interval).time()
 
-    return [(time, time) for time in times]            
+    return [(time, time) for time in times]
+
 
 class BookingForm(forms.ModelForm):
     time = forms.ChoiceField(choices=time_choices(), widget=forms.Select)
 
     class Meta:
         model = Booking
-        fields = ['trainer_name', 'session_type', 'date', 'time', 'name', 'phonenumber', 'email', 'age', 'gender', 'message']
+        fields = ['trainer_name', 'session_type', 'date', 'time', 'name',
+                  'phonenumber', 'email', 'age', 'gender', 'message']
         widgets = {
             'message': forms.Textarea(attrs={'rows': 4}),
             'trainer_name': forms.Select(),
             'session_type': forms.Select(),
-            'date': forms.DateInput(attrs={'type': 'date', 'min': timezone.now().date().isoformat()}),
+            'date': forms.DateInput(attrs={
+                'type': 'date', 'min': timezone.now().date().isoformat()}),
         }
-    
+
     def clean_age(self):
         input_age = self.cleaned_data['age']
         if input_age < 18:
             raise ValidationError("You must be at least 18 years old to book.")
         return input_age
-    
+
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super(BookingForm, self).__init__(*args, **kwargs)
@@ -59,7 +65,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['first_name', 'last_name', 'phone_number']
-    
+
     # def __init__(self, *args, **kwargs):
     #     super(ProfileForm, self).__init__(*args, **kwargs)
 
@@ -70,6 +76,7 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2',)
+
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Email / Username')
