@@ -283,11 +283,9 @@ MemberComment Table
 <h3>W3C Html Validator</h3>
 <a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342047/healthclub-pp4/W3Cvalidator_wtedl7.jpg"></a>
 <h3>CodeInstitute CI Python Linter</h3>
-<a>All paged checked and no errors found<>
-https://pep8ci.herokuapp.com/  
+<p>All paged checked - no errors found</>
+<a href=https://pep8ci.herokuapp.com/>Pep8ci</a>  
 
-no errors on checked pages: 
-admin.py forms.py, urls.py, views.py, models.py
 
 <h3>Known Bugs</h3>
 <table style="width:100%">
@@ -298,22 +296,16 @@ admin.py forms.py, urls.py, views.py, models.py
     <th>Comment</th>
   </tr>
 <tr>
-    <td>Register</td>
-    <td>The form should register a new user and add the information to the database</td>
-    <td>Nothing happens</td>
-    <td>I have tried to resolve this with tutoring, slack, google, the instruction videos and still have not been able to resolve the issue, I even tried to do the entire project all over but still missing something.</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
 </tr>
 <tr>
-    <td>Edit profile</td>
-    <td>When the user updates the profile information the information should be updated to the database and displayed in the profile view</td>
-    <td>The information is updated in the database but not displayed for the user</td>
-    <td>This would be sorted in an updated version</td>
-</tr>
-<tr>
-    <td>Admin</td>
-    <td>The admin should look the same as it does locally</td>
-    <td>The admin looks weird on the live site</td>
-    <td>This will be sorted in an updated version</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
 </tr>
 
 <h3>Testing User Stories</h3>
@@ -335,23 +327,23 @@ admin.py forms.py, urls.py, views.py, models.py
 <tr>
     <td>User Story:As a new user I want to be able to register</td>
     <td>A new user whould be able to register and then be redirected to the profile page</td>
-    <td>Tried to register a new user</td>
-    <td>Fail</td>
-    <td>Known bug</td>
+    <td>Filled in the register form with a new user</td>
+    <td>Pass</td>
+    <td>Worked as expected</td>
 </tr>
 <tr>
     <td>User Story:As a current user I want to be able to book personal trainer sessions</td>
     <td>When logged in the user can send a request for a personal trainer session</td>
     <td>Filled in the form and sent the request</td>
     <td>Pass</td>
-    <td>The form is added in the admin - a future feature could be a message to the user that the form has been sent</td>
+    <td>The form is added in the admin and the requested session is added to the user profile with current status</td>
 </tr>
 <tr>
     <td>User Story:As a user I want to be able to cancel booked sessions</td>
-    <td>Cancel a booked and confirmed personal trainer session</td>
-    <td>None</td>
-    <td>None</td>
-    <td>Future feature</td>
+    <td>Cancel a booked or requested personal trainer session</td>
+    <td>Cancel button by the chosen session</td>
+    <td>Pass</td>
+    <td>The session is cancelled and it is displayed in the profile view.</td>
 </tr>
 <tr>
     <td>User Story:As a user I want to be able to sign up for membership</td>
