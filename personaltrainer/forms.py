@@ -4,9 +4,10 @@ from allauth.account.forms import SignupForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, get_user_model
+from django.core.exceptions import ValidationError
 from .models import Contact, Booking, Profile, MemberComment
 from django.utils import timezone
-
+from datetime import date
 
 User = get_user_model()
 
@@ -40,6 +41,18 @@ class BookingForm(forms.ModelForm):
             'session_type': forms.Select(),
             'date': forms.DateInput(attrs={'type': 'date', 'min': timezone.now().date().isoformat()}),
         }
+    
+    def clean_age(self):
+        input_age = self.cleaned_data['age']
+        if input_age < 18:
+            raise ValidationError("You must be at least 18 years old to book.")
+        return input_age
+    
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(BookingForm, self).__init__(*args, **kwargs)
+        if user:
+            self.fields['email'].initial = user.email
 
 
 class ProfileForm(forms.ModelForm):

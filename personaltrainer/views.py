@@ -44,15 +44,16 @@ class MembersonlyView(View):
             return redirect('login')
 
 
-class BookView(View):
+class BookView(LoginRequiredMixin, View):
     """
     Implementation for the book view
     """
     template_name = 'book.html'
 
-    @method_decorator(login_required)
+    # @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
-        form = BookingForm()
+        initial_data = {'email': request.user.email}
+        form = BookingForm(initial=initial_data)
         return render(request, self.template_name, {'form': form})
     
     def post(self, request, *args, **kwargs):

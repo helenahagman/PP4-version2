@@ -14,7 +14,7 @@ class Booking(models.Model):
     session_type = models.ForeignKey('SessionType', on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
-    name = models.CharField(max_length=100, default='State your name')
+    name = models.CharField(max_length=100, default='Your name')
     phonenumber = models.CharField(max_length=15, default='1234567890')
     email = models.EmailField(max_length=70, default='your@mail.com')
     age = models.IntegerField(default=0, validators=[MinValueValidator(0)])
@@ -26,9 +26,7 @@ class Booking(models.Model):
         ],
         default='male'
     )
-    message = models.TextField(max_length=300, default='')
-    # approved = models.BooleanField(default=False)
-    # canceled = models.BooleanField(default=False)
+    message = models.TextField(max_length=300, default='', blank=True)
 
     STATUS_CHOICES = (
         ('pending', 'Pending'),
