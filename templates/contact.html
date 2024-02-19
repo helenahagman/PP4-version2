@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
                     <h3>{% trans "Contact" %}</h3>
-                    <form onsubmit="sendMail(this, event)" id="contactForm" class="contact" method="POST" action="{% url 'contact' %}">
+                    <form onsubmit="return sendMail(this);" id="contactForm" class="contact" method="POST" action="{% url 'contact' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button id="sendButton" type="submit" class="btn btn-primary" style="width: 30%">
