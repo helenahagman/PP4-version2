@@ -203,7 +203,10 @@ def contact_view(request):
             messages.success(request, 'Your message has been sent, we will reply shortly.')
             return render(request, 'contact.html', {'form': ContactForm()})
     else:
-        form = ContactForm()
+        if request.user.is_authenticated:
+            form = ContactForm(initial={'email': request.user.email})
+        else:
+            form = ContactForm()
     
     return render(request, 'contact.html', {'form': form})
 
