@@ -314,8 +314,9 @@ def cancel_booking(request, booking_id):
         booking = get_object_or_404(
             Booking, id=booking_id, user=request.user
             )
-        booking.status = 'canceled'
-        booking.save()
+        # booking.status = 'canceled'
+        # booking.save()
+        booking.delete()
         messages.success(request,
                         "Your booking has been successfully canceled.")
     return redirect('profile_view')
