@@ -66,9 +66,6 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ['first_name', 'last_name', 'phone_number']
 
-    # def __init__(self, *args, **kwargs):
-    #     super(ProfileForm, self).__init__(*args, **kwargs)
-
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required information')

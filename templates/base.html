@@ -156,11 +156,27 @@
 
     <!-- Core theme JS-->
     <script src="{% static 'js/clean-blog.min.js' %}"></script>
+
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/c7dbda0798.js" crossorigin="anonymous"></script>
 
     <!-- Include the function.js file -->
     <script src="{% static 'js/function.js' %}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var messages = document.querySelectorAll('.alert');
+    
+            // Function to hide messages
+            function hideMessages() {
+                messages.forEach(function(message) {
+                    message.style.display = 'none';
+                });
+            }
+    
+            setTimeout(hideMessages, 5000);
+        });
+    </script>
 
 </body>
 
