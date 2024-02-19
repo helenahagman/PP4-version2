@@ -26,18 +26,7 @@ In Codeanywhere you have superuser security privileges by default. Therefore you
 
 To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
-------------------------------------------------------------------------------------
 
 
 
@@ -46,9 +35,9 @@ Happy coding!
 <h1>The Health Club Project</h1>
 <p><img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1700732164/healthclub-pp4/AmIResponsive_ekzd2n.jpg" alt="Am I Responsive"></li></p>
 
-<h4 href="https://github.com/helenahagman/healthclubprojectPP4" > View The Health Club Project on Github Pages </h3>
+<h4 href="https://github.com/helenahagman/PP4-version2" > View The Health Club Project on Github Pages </h3>
 <br>
-<h4 href="https://ptproject-ec6a8ad157bf.herokuapp.com/">Live Site</h4>
+<h4 href="https://pp4-version2-cb4c0cb8c9b5.herokuapp.com/">Live Site</h4>
 
 <h2> CONTENTS</h2>
 <h4>User Experience (UX)</h4>
@@ -88,7 +77,8 @@ Happy coding!
 <h4>Deployment</h4>
 <ul>
 <li>Deployment to Heroku:</li>
-<ol> <li>Click on Account Settings</li>
+<ol>
+<li>Installed the Heroku CLI</li>
 <li>Copy the API key.</li>
 <li>Enter the command: heroku_config , and enter the API key</li>
 <li>Enter your heroku username</li>
