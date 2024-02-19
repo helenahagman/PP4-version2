@@ -1,39 +1,6 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
-
-## Codeanywhere Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-
-
-
-
-
 
 <h1>The Health Club Project</h1>
-<p><img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1700732164/healthclub-pp4/AmIResponsive_ekzd2n.jpg" alt="Am I Responsive"></li></p>
+<p><img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342047/healthclub-pp4/AmIResponsive2024_psrgmd.jpg" alt="Am I Responsive"></li></p>
 
 <h4 href="https://github.com/helenahagman/PP4-version2" > View The Health Club Project on Github Pages </h3>
 <br>
@@ -63,10 +30,9 @@ To log into the Heroku toolbelt CLI:
 
 <h4>Testing</h4>
 <ul>
-<li>W3C Validator</li>
+<li>Validation</li>
 <li>Bugs</li>
 <li>Testing User Stories</li>
-<li>Lighthouse</li>
   <ul>
 <li>Index Page</li>
 <li>Personal Trainer Page</li>
@@ -292,7 +258,7 @@ Booking Table
 |            | age          | IntegerField    |
 |            | gender       | CharField       |
 |            | message      | TextField       |
-|            | approved     | BooleanField    |
+|            | status       | CharField       |
 
 MemberComment Table
 
@@ -308,10 +274,14 @@ MemberComment Table
 <h2>Testing</h2>
 <p>Testing features, accessibility, links, responsiveness have been done throughout the project and after every step of the way tests have been performed to make sure that the new inserts has been working correctly and corrected thereafter.</p>
 <ul>
-<h3>W3C Validator</h3>
-<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1700728815/healthclub-pp4/Htmlcheck_uydkqt.jpg"></a>
+<h2>Validation</h2>
+<h3>W3C CSS Validator</h3>
+<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/W3C_CSSvalidator_b3goqk.jpg"></a>
 <h3>Lighthouse</h3>
-<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1700729124/healthclub-pp4/lighthouse_vke3yw.jpg"></a>
+<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/Lighthouse1_cenhhc.jpg"></a>
+<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/Lighthouse2_dykcxo.jpg"></a>
+<h3>W3C Html Validator</h3>
+<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342047/healthclub-pp4/W3Cvalidator_wtedl7.jpg"></a>
 <h3>Known Bugs</h3>
 <table style="width:100%">
   <tr>
