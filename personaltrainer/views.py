@@ -9,13 +9,20 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect, get_object_or_404 
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
 from django.conf import settings
 from allauth.account.views import SignupView
 from allauth.account.forms import SignupForm
 from .models import Profile, Contact, Booking
-from .forms import ContactForm, BookingForm, ProfileForm, SignUpForm, MemberCommentForm, LoginForm
+from .forms import (
+    ContactForm,
+    BookingForm,
+    ProfileForm,
+    SignUpForm,
+    MemberCommentForm,
+    LoginForm,
+)
 
 
 def index(request):
@@ -55,7 +62,7 @@ class BookView(LoginRequiredMixin, View):
         initial_data = {'email': request.user.email}
         form = BookingForm(initial=initial_data)
         return render(request, self.template_name, {'form': form})
-    
+
     def post(self, request, *args, **kwargs):
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -67,7 +74,6 @@ class BookView(LoginRequiredMixin, View):
 
         return render(request, self.template_name, {'form': form})
 
- 
 
 class MemberView(View):
     """
@@ -77,7 +83,7 @@ class MemberView(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
-    
+
     def post(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
@@ -100,10 +106,9 @@ class ProfileView(LoginRequiredMixin, View):
             'profile': profile,
             'bookings': bookings,
         }
-        
+
         return render(request, self.template_name, context)
-    
-    
+
     def post(self, request, *args, **kwargs):
         user = request.user
         profile, created = Profile.objects.get_or_create(user=user)
@@ -113,32 +118,18 @@ class ProfileView(LoginRequiredMixin, View):
             messages.success(request, 'Profile updated successfully')
             return redirect('profile_view')
         bookings = Booking.objects.filter(user=user)
-        return render(request, self.template_name, {'form': form, 'user': user, 'profile': profile, 'bookings': bookings})
+        return render(
+            request,
+            self.template_name,
+            {
+                'form': form,
+                'user': user,
+                'profile': profile,
+                'bookings': bookings
+            }
+        )
 
 
-
-# def signup(request):
-#     if request.method == 'POST':
-#         form = SignUpForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-#             return redirect('profile_view')  
-#     else:
-#         form = SignUpForm()
-#     context = {'form': form}
-#     return render(request, 'account/signup.html', context)
-
-
-# class CustomSignupView(SignupView):
-#     template_name = 'account/signup.html'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['header'] = 'Sign up now'
-#         context['subheading'] = 'Make smart choices and live a healthier life.'
-#         return context
-        
 def signup(request):
     if request.method == 'POST':
         form = CustomSignupForm(request.POST)
@@ -164,12 +155,13 @@ def log_in(request):
             return redirect('profile_view')
     else:
         form = AuthenticationForm()
-    
+
     context = {
         'title': 'Login',
         'form' : form,
     }
     return render(request, 'login.html', context)
+
 
 @login_required
 def log_out(request):
@@ -178,7 +170,6 @@ def log_out(request):
     """
     logout(request)
     return redirect('index')
- 
 
 
 @login_required
@@ -195,20 +186,23 @@ def profile_view(request):
 
     return render(request, 'profile.html', context)
 
+
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            
-            messages.success(request, 'Your message has been sent, we will reply shortly.')
+
+            messages.success(request,
+                             'Your message has been sent, '
+                             'we will reply shortly.')
             return render(request, 'contact.html', {'form': ContactForm()})
     else:
         if request.user.is_authenticated:
             form = ContactForm(initial={'email': request.user.email})
         else:
             form = ContactForm()
-    
+
     return render(request, 'contact.html', {'form': form})
 
 
@@ -239,44 +233,66 @@ def sessions_api(request):
 def personal_trainer(request):
     context = {
         'header': 'Personal Trainer',
-        'subheading': 'A session with a Personal Trainer can make the whole difference.',
+        'subheading': (
+            'A session with a Personal Trainer can make '
+            'the whole difference.'
+        ),
     }
     return render(request, 'personaltrainer.html', context)
+
 
 def members(request):
     context = {
         'header': 'Members',
-        'subheading': 'As a member you get access to all the best offers and news!',
+        'subheading': (
+            'As a member you get access to all the best '
+            'offers and news!'
+        ),
     }
     return render(request, 'member.html', context)
+
 
 def login(request):
     context = {
         'header': 'Stay active',
-        'subheading': 'Daily exercise helps you to stay strong and healthy.',
+        'subheading': (
+            'Daily exercise helps you to '
+            'stay strong and healthy.'
+        ),
     }
     return render(request, 'login.html', context)
+
 
 def signup(request):
     context = {
         'header': 'Welcome',
-        'subheading': 'Make smart choices and live a healthier life.',
+        'subheading': (
+            'Make smart choices and live a healthier life.'
+        ),
     }
     return render(request, 'account/signup.html', context)
+
 
 def contact(request):
     context = {
         'header': 'Contact us',
-        'subheading': 'We are here for you, fill in the form and let us know whats on your mind',
+        'subheading': (
+            'We are here for you, '
+            'let us know whats on your mind'
+        ),
     }
     return render(request, 'contact.html', context)
+
 
 def book(request):
     context = {
         'header': 'Book PT session',
-        'subheading': 'A session with an expert will get you started, no matter what your goal is! ',
+        'subheading': (
+            'A session with an expert will get you started! '
+        ),
     }
     return render(request, 'book.html', context)
+
 
 @login_required
 def membersonly(request):
@@ -291,11 +307,15 @@ def membersonly(request):
         form = MemberCommentForm()
     return render(request, 'membersonly.html', {'form': form})
 
+
 @login_required
 def cancel_booking(request, booking_id):
     if request.method == 'POST':
-        booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+        booking = get_object_or_404(
+            Booking, id=booking_id, user=request.user
+            )
         booking.status = 'canceled'
         booking.save()
-        messages.success(request, "Your booking has been successfully canceled.")
+        messages.success(request,
+                        "Your booking has been successfully canceled.")
     return redirect('profile_view')

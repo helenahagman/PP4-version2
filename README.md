@@ -282,6 +282,13 @@ MemberComment Table
 <a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/Lighthouse2_dykcxo.jpg"></a>
 <h3>W3C Html Validator</h3>
 <a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342047/healthclub-pp4/W3Cvalidator_wtedl7.jpg"></a>
+<h3>CodeInstitute CI Python Linter</h3>
+<a>All paged checked and no errors found<>
+https://pep8ci.herokuapp.com/  
+
+no errors on checked pages: 
+admin.py forms.py, urls.py, views.py, models.py
+
 <h3>Known Bugs</h3>
 <table style="width:100%">
   <tr>
