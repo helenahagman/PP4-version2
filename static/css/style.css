@@ -1,40 +1,37 @@
 /* custom css*/
 
+body {
+    padding-top: 70px;
+}
+
+/* Styling for Navbar */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #248ea3;
+    z-index: 1030;
     color: #fff !important;
     font-weight: bold !important;
 }
 
 .navbar * {
     color: #fff !important;
-    font-weight: bold !important;
 }
 
-nav.navbar {
-    position: fixed;
-    background-color: #248ea3;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1030;
-}
-
-/* Styling for active nav-link */
+/* Active and Hover states */
 .navbar-light .navbar-nav .nav-item.active .nav-link,
 .navbar-light .navbar-nav .nav-link.active {
     color: #6e3dcf;
     font-weight: bold;
 }
 
-/* Hover effect for nav-link */
 .navbar-light .navbar-nav .nav-link:hover {
     color: black;
 }
 
-.subheading {
-    text-align: center;
-}
-
+/* Site heading and subheading */
 .site-heading {
     display: flex;
     justify-content: center;
@@ -42,8 +39,13 @@ nav.navbar {
     align-items: center;
 }
 
-body {
-    padding-top: 70px;
+.subheading {
+    text-align: center;
+}
+
+/* Masthead and Typography */
+.masthead {
+    margin-top: 100px;
 }
 
 .display-4 {
@@ -52,26 +54,10 @@ body {
     line-height: 1.2;
 }
 
-.masthead {
-    margin-top: 100px;
-}
-
-.custom-columns {
-    text-align: center;
-}
-
-#menu a.current {
-    color: #fcfbfb;
-    background-color: rgb(180, 175, 175);
-}
-
+/* Button and Link styles */
 .btn-primary {
     background-color: #248ea3;
     border-color: #0085A1;
-}
-
-.footer-text-color {
-    color: white;
 }
 
 .footer a {
@@ -80,6 +66,11 @@ body {
 
 .footer a:hover {
     color: gray;
+}
+
+/* Footer styles */
+.footer-text-color {
+    color: white;
 }
 
 /* Contact form styling */
@@ -99,14 +90,14 @@ body {
     border-radius: 5px;
 }
 
-/* Responsive adjustments */
+/* Responsive styles */
 @media (max-width: 768px) {
     .contact-form {
         padding: 15px;
     }
 }
 
-/* Ensures navbar items stay on one line on large screens */
+/* Navbar layout adjustment for large screens */
 @media (min-width: 992px) {
     .navbar-nav {
         display: flex;
