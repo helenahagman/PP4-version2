@@ -40,15 +40,46 @@
 <li>Testing features and functions</li></ul>
 </ul>
 
-<h4>Deployment</h4>
+<h3>Deployment</h3>
 <ul>
-<li>Deployment to Heroku:</li>
+
+<h4>Deployment on Github</h4>
 <ol>
-<li>Installed the Heroku CLI</li>
-<li>Copy the API key.</li>
-<li>Enter the command: heroku_config , and enter the API key</li>
-<li>Enter your heroku username</li>
-<li>Enter the API key</li>
+<li>Github was used for storage of data and version control. Updates, changes and additions of the code was done using these commands in the IDE</li>
+<li>git add .</li>
+<li>git commit -m "commit message"</li>
+<li>git push</li>
+</ol>
+
+<h4>Creating a Fork or Copying</h4>
+<li>To clone, fork or copying the repository you can click on the fork tab in the top right corner of the page</li>
+
+<h4>Clone</h4>
+<li>To make a clone you can do the following:</li>
+<ol>
+<li>Click the code tab, left to the Gitpod tab</li>
+<li>Click the clipboard icon to the tifght of the repository name</li>
+<li>In the IED open GitBash</li>
+<li>Change the working directory to the location you prefer</li>
+<li>Add Git Clone with the copy of the repository name</li>
+</ol>
+
+<h4>Deployment to Heroku:</h4>
+<li>First you need to create a new app on the Heroku dashboard page.</li>
+<ol>
+<li>Click New</li>
+<li>Create App - found in the drop-down menu</li>
+<li>Add app name and select region</li>
+<li>Create app</li>
+<li>When the app has been created go to the settings tab and add config vars by clicking the "Reveal configvars" button.</li>
+</ol>
+
+<h4>Deployment of the app:</h4>
+<ol>
+<li>Click on the Deploy tab and the connect to Github option</li>
+<li>Select the correct repository</li>
+<li>You can use automatic or manual deployment, I used manual for this project</li>
+<li>When deployed you can open the app in the top right corner</li>
 </ol>
 </ul>
 
