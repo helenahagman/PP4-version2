@@ -132,12 +132,13 @@ class ProfileView(LoginRequiredMixin, View):
 # function for sign-up form
 def signup(request):
     if request.method == 'POST':
-        form = CustomSignupForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Account created successfully. You are now logged in.')
             return redirect('profile_view')
     else:
-        form = CustomSignupForm()
+        form = SignupForm()
 
     return render(request, 'account/signup.html', {'form': form})
 

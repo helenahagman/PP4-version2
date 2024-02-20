@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'personaltrainer',
+    'widget_tweaks',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

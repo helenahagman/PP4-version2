@@ -22,35 +22,32 @@
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1699354020/healthclub-pp4/pexels-bich-tran-669986_1_hwbku7.jpg"
                         alt="Gym" class="card-img-top img-fluid">
-                    <!--<a>
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                </div>-->
-                <div class="card-body">
-                    <h3 class="card-title">{% trans "Contact" %}</h3>
-                    <form onsubmit="return sendMail(this);" id="contactForm" class="contact" method="POST" action="{% url 'contact' %}">
-                        {% csrf_token %}
-                        <div class="form-group mb-3">
-                            {{ form.name_contact.label_tag }}
-                            {{ form.name_contact }}
-                        </div>
-                        <div class="form-group mb-3">
-                            {{ form.email.label_tag }}
-                            {{ form.email }}
-                        </div>
-                        <div class="form-group mb-3">
-                            {{ form.contact_message.label_tag }}
-                            {{ form.contact_message }}
-                        </div>
-                        <button id="sendButton" type="submit" class="btn btn-primary">
-                            {% trans "Send" %}
-                        </button>
-                    </form>
+                    
+                    <div class="card-body">
+                        <h3 class="card-title">{% trans "Contact" %}</h3>
+                        <form onsubmit="return sendMail(this);" id="contactForm" class="contact" method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <div class="form-group mb-3">
+                                {{ form.name_contact.label_tag }}
+                                {{ form.name_contact }}
+                            </div>
+                            <div class="form-group mb-3">
+                                {{ form.email.label_tag }}
+                                {{ form.email }}
+                            </div>
+                            <div class="form-group mb-3">
+                                {{ form.contact_message.label_tag }}
+                                {{ form.contact_message }}
+                            </div>
+                            <button id="sendButton" type="submit" class="btn btn-primary">
+                                {% trans "Send" %}
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <script type="text/javascript">
     emailjs.init("RO0elmR_iHiWZiyEO");
@@ -60,7 +57,7 @@
             
         var templateParams = {
             name: contactForm.name_contact.value,
-            email_ contactForm.email.value,
+            email: contactForm.email.value,
             message: contactForm.contact_message.value
             // notes: contactForm.contact_message.value
         };
