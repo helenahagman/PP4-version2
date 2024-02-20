@@ -17,22 +17,33 @@
         </div>
     {% endif %}
     <div class="row justify-content-center">
-        <div class="col-lg-6 mb-4">
+        <div class="col-md-8 col-lg-6 mb-4">
             <div class="card">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1699354020/healthclub-pp4/pexels-bich-tran-669986_1_hwbku7.jpg"
-                        alt="Gym" class="img-fluid">
-                    <a>
+                        alt="Gym" class="card-img-top img-fluid">
+                    <!--<a>
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                     </a>
-                </div>
+                </div>-->
                 <div class="card-body">
-                    <h3>{% trans "Contact" %}</h3>
+                    <h3 class="card-title">{% trans "Contact" %}</h3>
                     <form onsubmit="return sendMail(this);" id="contactForm" class="contact" method="POST" action="{% url 'contact' %}">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        <button id="sendButton" type="submit" class="btn btn-primary" style="width: 30%">
-                            Send
+                        <div class="form-group mb-3">
+                            {{ form.name_contact.label_tag }}
+                            {{ form.name_contact }}
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.email.label_tag }}
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.contact_message.label_tag }}
+                            {{ form.contact_message }}
+                        </div>
+                        <button id="sendButton" type="submit" class="btn btn-primary">
+                            {% trans "Send" %}
                         </button>
                     </form>
                 </div>
@@ -49,7 +60,9 @@
             
         var templateParams = {
             name: contactForm.name_contact.value,
-            notes: contactForm.contact_message.value
+            email_ contactForm.email.value,
+            message: contactForm.contact_message.value
+            // notes: contactForm.contact_message.value
         };
         
         emailjs.send('service_b8gz1av', 'template_8j0ugds', templateParams)
@@ -60,6 +73,7 @@
             }, function(error) {
                 console.log("Ooops, something went wrong. Try again.");
             });
+        return false;
     }
 </script>
 

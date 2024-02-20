@@ -18,6 +18,11 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['name_contact', 'email', 'contact_message']
+        widgets = {
+            'name_contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email'}),
+            'contact_message': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'Your Message'}),
+        }
 
 # function for time choices for booking time
 def time_choices():
