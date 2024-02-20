@@ -6,6 +6,7 @@ Django==5.0.2
 django-allauth==0.61.1
 django-crispy-forms==2.1
 django-summernote==0.8.20.0
+django-widget-tweaks==1.5.0
 gunicorn==21.2.0
 oauthlib==3.2.2
 pillow==10.2.0
