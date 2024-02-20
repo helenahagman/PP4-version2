@@ -18,6 +18,7 @@
 <ul>
 <li>Imagery</li>
 <li>Wire Frames</li>
+<li>Site flow diagram</li>
 <li>Features</li>
 <li>Accessability</li>
 </ul>
@@ -188,24 +189,39 @@ I wanted to build a good looking website where the functionality for online book
 <h5>Wireframes were created using Miro and was created for mobile, tablet and desktop views. As a part of the development of this page an agile approach has been used and therefor the end result may differ from the original wire frames.</h5>
 <a href=” https://miro.com/app/board/uXjVM94tSQs=/?share_link_id=555048984575” >Miro Wire Frames</a>
 
+<h3>Site flow diagram</h3>
+<h5>Basic site flow diagram was done using <a href="https://www.miro.com">Miro.com</a></h5>
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708437609/healthclub-pp4/miro_site_flow_diagram_asdoa4.jpg">
+
+
 <h3>Features</h3>
-<p>The website contains of three main pages: Main page, Personal Trainer page, Members page. All main pages are accessible from the navigation menu on the top of the page.</p>
+<p>The website contains of three main pages: Home, Personal Trainer, Members. All main pages are accessible from the navigation menu on the top of the page.</p>
 <li>All main pages:</li>
 <ul>
-  <li>Responsive navigation menu on the top of the page to be able to navigate to the three main pages. The links to the pages are placed on the right side of the navigation bar, to the left a logo with the project name is placed.</li>
+  <li>Responsive navigation menu on the top of the page to be able to navigate to the three main pages. The links to the pages are placed on the right side of the navigation bar and to the left the project name/site name is placed. On smaller screens the navigation bar will be displayed as a drop down hamburger menu</li>
   <li>In the footer social media links to facebook and instagram are placed in the form of icons.</li>
 </ul>
-<li>Start/about page:</li>
+<li>Start/home page:</li>
 <ul>
-  <li>Short descriptive information along with an image followed by two postcards with link to Personal Trainer page and the Member Page.</li>
+  <li>Short descriptive information along with an image followed by two postcards with link to Personal Trainer page and link to Log in or sign up.</li>
   </ul>
 <li>Personal Trainer Page:</li>
 <ul>
-  <li>Short descriptive information along with an image and a button to book session, below that two postcards with link to book sessions and the Member Page</li>
+  <li>Short descriptive information along with an image and a button to book session, below that two postcards with link to the contact form and the Member Page</li>
 </ul>
-  <li>Member Page:</li>
+  <li>Members Page:</li>
 <ul>
-  <li>Short descriptive information along with an image, below that two postcards with link to the contact form and the login and register form</li>
+  <li>Short descriptive information along with an image, below that two postcards with link to the contact form and the login and sign up form</li>
+</ul>
+
+<h5>These pages will only be displayed for a user that is currently logged in</h5>
+<li>Members only Page:</li>
+<ul>
+  <li>Will present the user with news and offers and link to book personal trainer sessions. Future feature will be a link where users can add photo and information on their journey to share with other users.</li>
+</ul>
+<li>Profile Page:</li>
+<ul>
+  <li>The user is able to update and delete first name, last name and phone number on their profile. the user is also presented with their booking requests and the status (Pending, Accepted, Denied) they also have the option to delete a booking request</li> <img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708439082/healthclub-pp4/bookreq_y6a3ad.jpg">
 </ul>
 
 
@@ -302,17 +318,19 @@ MemberComment Table
 |            | created_at | DateTimeField |
 
 
+
+
 <h2>Testing</h2>
 <p>Testing features, accessibility, links, responsiveness have been done throughout the project and after every step of the way tests have been performed to make sure that the new inserts has been working correctly and corrected thereafter.</p>
 <ul>
 <h2>Validation</h2>
 <h3>W3C CSS Validator</h3>
-<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/W3C_CSSvalidator_b3goqk.jpg"></a>
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/W3C_CSSvalidator_b3goqk.jpg">
 <h3>Lighthouse</h3>
-<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/Lighthouse1_cenhhc.jpg"></a>
-<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/Lighthouse2_dykcxo.jpg"></a>
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/Lighthouse1_cenhhc.jpg">
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342046/healthclub-pp4/Lighthouse2_dykcxo.jpg">
 <h3>W3C Html Validator</h3>
-<a href="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342047/healthclub-pp4/W3Cvalidator_wtedl7.jpg"></a>
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342047/healthclub-pp4/W3Cvalidator_wtedl7.jpg">
 <h3>CodeInstitute CI Python Linter</h3>
 <p>All paged checked - no errors found</>
 <a href=https://pep8ci.herokuapp.com/>Pep8ci</a>  
@@ -332,12 +350,7 @@ MemberComment Table
     <td></td>
     <td></td>
 </tr>
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>
+
 
 <h3>Testing User Stories</h3>
 <table style="width:100%">
@@ -351,30 +364,30 @@ MemberComment Table
 <tr>
     <td>User Story: As a current user I want to be able to login</td>
     <td>When logged in the user should be redirected to the profile page</td>
-    <td>Logged in with AppAdmin and PassW0rd</td>
+    <td>Logged in with AppAdmin and Password</td>
     <td>Pass</td>
-    <td>Worked as expected</td>
+    <td>The user is logged in and redirected to the profile page</td>
 </tr>
 <tr>
     <td>User Story:As a new user I want to be able to register</td>
     <td>A new user whould be able to register and then be redirected to the profile page</td>
     <td>Filled in the register form with a new user</td>
     <td>Pass</td>
-    <td>Worked as expected</td>
+    <td>The user is logged in and redirected to the profile page</td>
 </tr>
 <tr>
     <td>User Story:As a current user I want to be able to book personal trainer sessions</td>
     <td>When logged in the user can send a request for a personal trainer session</td>
     <td>Filled in the form and sent the request</td>
     <td>Pass</td>
-    <td>The form is added in the admin and the requested session is added to the user profile with current status</td>
+    <td>The form is added in the admin and the requested session is added to the user profile with current status of  Pending</td>
 </tr>
 <tr>
     <td>User Story:As a user I want to be able to cancel booked sessions</td>
     <td>Cancel a booked or requested personal trainer session</td>
     <td>Cancel button by the chosen session</td>
     <td>Pass</td>
-    <td>The session is cancelled and it is displayed in the profile view.</td>
+    <td>The session is cancelled and is deleted from the profile view.</td>
 </tr>
 <tr>
     <td>User Story:As a user I want to be able to sign up for membership</td>
@@ -388,50 +401,72 @@ MemberComment Table
     <td>Contact form sent to the admin</td>
     <td>Filled in contact form</td>
     <td>Pass</td>
-    <td>The form is sent and added to the admin - a message to the user will be a future feature</td>
+    <td>The form is sent and added to the admin and a success message to the user is presented on the page</td>
 </tr>
 <tr>
     <td>User Story:As a current user I want to be able to see registered information that the owner has on file</td>
     <td>Profile page</td>
     <td>Logged in and looked on the profile page</td>
-    <td>Fail</td>
-    <td>The only informaiton displayed is the username, email and phonenumber but first and last name are not displayed as they should</td>
+    <td>Pass</td>
+    <td>The information is displayed on the profile page: username and email, also the first name, last name and phone number if the user has updated their profile with that information</td>
 </tr>
 <tr>
     <td>User Story:As the owner I want to be able to offer Bookable Personal Trainer Sessions</td>
     <td>The book request form</td>
     <td>The form is added to admin and can be approved with an admin status profile</td>
     <td>Pass</td>
-    <td>Future updates should be to be able to deny and also send reply directly to the user</td>
+    <td>The admin can accept or deny the request and the status is updated to the user visible on the profile page</td>
 </tr>
 <tr>
     <td>User Story:As the owner I want to be able to log in as the administrator</td>
     <td>Admin login</td>
-    <td>Logged in with AppAdmin and PassW0rd</td>
+    <td>Logged in with admin user and password on the admin page</td>
     <td>Pass</td>
     <td>Works as expected</td>
 </tr>
 <tr>
     <td>User Story:As the owner I want to be able to communicate send messages to registered users</td>
-    <td>Contact form</td>
-    <td>Contact form test</td>
-    <td>Pass</td>
-    <td>The information is added to the database next would be to add more functionality to be able to send direct messages and newsletters</td>
+    <td>News letters/comminication</td>
+    <td>Future feature</td>
+    <td>None</td>
+    <td>Future feaure to add functionality to be able to send direct messages and newsletters via the admin</td>
 </tr>
 <tr>
     <td>User Story:As the owner I want to be able to see registered users</td>
     <td>Admin panel</td>
     <td>Logged in as admin</td>
     <td>Pass</td>
-    <td>Information displayed as expected (part from the layout on the admin page)</td>
+    <td>Information displayed as expected</td>
 </tr>
 <tr>
     <td>User Story:As the owner I want to be able to handle booked sessions</td>
-    <td>Approve requested bookings</td>
-    <td>Clicked the approve button the booking request</td>
+    <td>Approve/deny/cancel requested bookings</td>
+    <td>When logged in as admin I can choose booking requests that I want to approve/deny or cancel on the booking request page</td>
     <td>Pass</td>
-    <td>Works - more functionality should be added</td>
+    <td>Works as expected</td>
 </tr>
+<tr>
+    <td>User story:As the owner I want to offer a “menu” of different sessions to the customer</td>
+    <td>Menu selection</td>
+    <td>When sending in  a booking request the user is presented with a selection of sessions that can be booked: 1 hour PT session, 30 min start-up session, 45 min duo-coaching </td>
+    <td>Pass</td>
+    <td>Works as expected</td>
+  </tr>
+<tr>
+    <td>User story:As the owner I want to be able to offer online booking form for the user to book sessions directly on the site</td>
+    <td>Booking request</td>
+    <td>The logged in user can send a booking request that admin can accept or deny</td>
+    <td>Pass</td>
+    <td>Works as expected</td>
+  </tr>
+  <tr>
+    <td>User story: As a user I want to be able to cancel a booked session online and not have to call or send a message to admin.</td>
+    <td>Cancellation</td>
+    <td>The logged in user can cancel a booking request on their profile page</td>
+    <td>Pass</td>
+    <td>Works as expected</td>
+  </tr>
+</ul>
 
 <h3>Testing Pages</h3>
 <table style="width:100%">
@@ -442,25 +477,25 @@ MemberComment Table
     <th>Comment</th>
   </tr>
 <tr>
-    <td>Index page</td>
+    <td>Home page</td>
     <td>Pass</td>
     <td>Pass</td>
-    <td>Needs some work on the layout</td>
+    <td>Works as expected</td>
 </tr>
 <tr>
     <td>Personal Trainer Page</td>
     <td>Pass</td>
     <td>Pass</td>
-    <td>Needs some work on the layout</td>
+    <td>Works as expected</td>
 </tr>
 <tr>
     <td>Member Page</td>
     <td>Pass</td>
     <td>Pass</td>
-    <td>Needs some work on the layout</td>
+    <td>Works as expected</td>
 </tr>
 <ul>
-<h3>Index Page Testing</h3>
+<h3>Home Page Testing</h3>
 <table style="width:100%">
   <tr>
     <th>Test</th>
@@ -469,38 +504,14 @@ MemberComment Table
     <th>Comment</th>
   </tr>
 <tr>
-    <td>Read More button in Personal Trainer card section</td>
-    <td>Redirect to Personal Trainer Page</td>
+    <td>Links on page</td>
+    <td>Redirects to corresponding Page</td>
     <td>Pass</td>
     <td>Works as expected</td>
 </tr>
 <tr>
-    <td>Log in button in the Members card section</td>
-    <td>Redirect to Log in page</td>
-    <td>Pass</td>
-    <td>Works as expected</td>
-</tr>
-<tr>
-    <td>Register button un the Members card section</td>
-    <td>Redirect to the register form</td>
-    <td>Fail</td>
-    <td>Known bug</td>
-</tr>
-<tr>
-    <td>Personal Trainer link in the Navbar</td>
-    <td>Redirect to the Persona Trainer Page</td>
-    <td>Pass</td>
-    <td>Works as expected</td>
-</tr>
-<tr>
-    <td>Members link in the Navbar</td>
-    <td>Redirect to the Members page</td>
-    <td>Pass</td>
-    <td>Works as expected</td>
-</tr>
-<tr>
-    <td>Log in link in the Navbar</td>
-    <td>Redirect to the log in form</td>
+    <td>Navigation links</td>
+    <td>Redirect to corrsponing page</td>
     <td>Pass</td>
     <td>Works as expected</td>
 </tr>
@@ -564,8 +575,8 @@ MemberComment Table
     <td>Works as expected</td>
 </tr>
 <tr>
-    <td>Register button</td>
-    <td>Redirect to the register form</td>
+    <td>Signup button</td>
+    <td>Redirect to the signup form</td>
     <td>Pass</td>
     <td>Works as expected</td>
 </tr>
@@ -578,12 +589,12 @@ MemberComment Table
     <th>Comment</th>
   </tr>
 <tr>
-    <td>Register Link</td>
-    <td>Redirect to the register form</td>
+    <td>Signup Link</td>
+    <td>Redirect to the signup form</td>
     <td>Pass</td>
     <td>Works as expected</td>
 </tr>
-<h3>Register Page</h3>
+<h3>Signup Page</h3>
 <table style="width:100%">
   <tr>
     <th>Test</th>
@@ -608,8 +619,8 @@ MemberComment Table
 <tr>
     <td>Profile information</td>
     <td>Display the profile information from the database to the logged in user</td>
-    <td>None</td>
-    <td>Does not display all the information</td>
+    <td>Pass</td>
+    <td>Displays profile details and booking requests</td>
 </tr>
 <tr>
     <td>Edit profile link</td>
@@ -621,7 +632,7 @@ MemberComment Table
     <td>Booking requests</td>
     <td>Display the logged in users personal trainer booking requests</td>
     <td>Pass</td>
-    <td>The booking request displays with date requested - its currently not showing if the request is accepted or denied, this could be a future feature</td>
+    <td>The booking request displays with date requested and showing if the request is accepted/denied/pending</td>
 </tr>
 
 
@@ -638,14 +649,14 @@ MemberComment Table
     <td>Register</td>
     <td>New user gets registered</td>
     <td>Added information as a new user</td>
-    <td>Not working as of this moment</td>
-    <td>Fail</td>
+    <td>Works as expected</td>
+    <td>Pass</td>
 </tr>
 <tr>
     <td>Log in</td>
     <td>User gets logged in</td>
     <td>Logged in with correct credentials</td>
-    <td>Logged in as expected</td>
+    <td>Works as expected</td>
     <td>Pass</td>
 </tr>
 <tr>
@@ -653,28 +664,28 @@ MemberComment Table
     <td>Expect error message</td>
     <td>Tried to login with username/password that is not correct</td>
     <td>Pass</td>
-    <td>Message: Please enter a correct username and password. Note that both fields may be case-sensitive. - as expected</td>
+    <td>Error message is presented</td>
 </tr>
 <tr>
     <td>Log out</td>
     <td>Logged in user is logged out</td>
     <td>The user gets logged out and the link in the navbar change to 'Log in'</td>
     <td>Pass</td>
-    <td>When the page is update the link is updated but a message would be a nice feature for better visualisation and for the user to know they have been successfully logged out.</td>
+    <td>The user is logged out and a success message is presented</td>
 </tr>
 <tr>
     <td>Contact form</td>
     <td>Send message to admin and get confirm message on the page in return</td>
-    <td>Tested to fill in the form with user 'Benji'</td>
+    <td>Tested to fill in the form.</td>
     <td>Pass</td>
-    <td>NOTE: The contact form is added to the admin as expected but the success message is currently not showing to the user.</td>
+    <td>The contact form is added to the admin as expected and the success message is displayed to the user.</td>
   </tr>
 <tr>
     <td>Booking form</td>
     <td>Send filled in booking request form to the admin and get a confirm message on the page in return</td>
-    <td>Tested to fill in the form with user 'Armen'</td>
+    <td>Tested to fill in the form</td>
     <td>Pass</td>
-    <td>NOTE: The form is added to the admin as expected but the success message is currently not showing to he user.</td>
+    <td>The form is added to the admin as expected and the request is added to the profile page for the user</td>
 </tr>
 </ul>
 </ul>
@@ -694,31 +705,7 @@ MemberComment Table
     <td>Buy Memberships</td>
     <td>As the owner I want to be able offer purchases for monthly memberships to the health club online to increase sales</td>
   </tr>
-<tr>
-    <td>Menu selection</td>
-    <td>As the owner I want to offer a “menu” of different sessions to the customer to be able to increase sales. Exampel of sessions that could be offered: 1 hour PT session, 30 min PT session, Fitness test, Health check</td>
-  </tr>
-<tr>
-    <td>Online booking</td>
-    <td>As the owner I want to be able to have an online booking form for the user to book availble session directly on the site</td>
-  </tr>
-<tr>
-    <td>Avoid double bookings</td>
-    <td>As the owner I want to be able to avoid double bookings</td>
-  </tr>
-<tr>
-    <td>Cancellation</td>
-    <td>As a user I want to be able to cancel a booked session online and not have to call or send a message to admin.</td>
-  </tr>
-<tr>
-    <td>Online booking</td>
-    <td>As the owner I want to be able to have an online booking form for the user to book availble session directly on the site</td>
-  </tr>
-<tr>
-    <td>Registration</td>
-    <td>As a new user I want to be able to register.</td>
-  </tr>
-</ul>
+
 </ul>
 
 <h4>Deployment</h4>
