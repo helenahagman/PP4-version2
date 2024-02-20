@@ -170,6 +170,7 @@ def log_out(request):
     To log out the user and redirect to start page
     """
     logout(request)
+    messages.success(request, 'You are logged out.')
     return redirect('index')
 
 # renders the users profile page
