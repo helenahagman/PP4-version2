@@ -2,9 +2,11 @@
 <h1>The Health Club Project</h1>
 <p><img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708342047/healthclub-pp4/AmIResponsive2024_psrgmd.jpg" alt="Am I Responsive"></li></p>
 
-<h4 href="https://github.com/helenahagman/PP4-version2" > View The Health Club Project on Github Pages </h3>
+<h4> View The Health Club Project on <br>
+<a href="https://github.com/helenahagman/PP4-version2" >Github Pages</a>
 <br>
-<h4 href="https://pp4-version2-cb4c0cb8c9b5.herokuapp.com/">Live Site</h4>
+or 
+<a href="https://pp4-version2-cb4c0cb8c9b5.herokuapp.com/">Live Site</a></h4>
 
 <h2> CONTENTS</h2>
 <h4>User Experience (UX)</h4>
@@ -177,7 +179,7 @@ I wanted to build a good looking website where the functionality for online book
 </ul>
 
 <h3>Link to KANBAN Board with User Stories on Trello:</h3>
-<a href="https://trello.com/b/yxkUuMp3/kanban-board">Trello KANBAN Board</a>
+<a href="https://trello.com/b/LEjWFpza/kanban-board-pp4">Trello KANBAN Board</a>
 
 <h2>Design</h2>
 
@@ -187,7 +189,7 @@ I wanted to build a good looking website where the functionality for online book
 
 <h3>Wire Frames</h3>
 <h5>Wireframes were created using Miro and was created for mobile, tablet and desktop views. As a part of the development of this page an agile approach has been used and therefor the end result may differ from the original wire frames.</h5>
-<a href=” https://miro.com/app/board/uXjVM94tSQs=/?share_link_id=555048984575” >Miro Wire Frames</a>
+<a href="https://miro.com/app/board/uXjVM94tSQs=/?share_link_id=555048984575">Miro Wire Frames</a>
 
 <h3>Site flow diagram</h3>
 <h5>Basic site flow diagram was done using <a href="https://www.miro.com">Miro.com</a></h5>
@@ -731,12 +733,7 @@ MemberComment Table
  <h3>Known unsolved bugs</h3>
 <br>
 <li>
-<p>The navbar and the main content is not corresponding as I would like</p>
-<p>Admin pages including log in page looks strange</p>
-<p>Profile page not displayed as expected, all information is not added</p>
-<p>Registration form is not working</p>
-<p>Success messages are not displayed as expected</p>
-<p>EmailJS was to be used with the contact form but not implemented correctly</p>
+<p>The navbar is not displaying the current page and hover function as I want it to</p>
 </li>
 <br>
 
@@ -756,6 +753,5 @@ MemberComment Table
 <li><a href="https://www.digitalocean.com">DigitalOcean</a></li>
 <p>Problem solving and ideas</p>
 <br>
-<p>I used the walkthrough in the Codeinstitute and used this as a basis for the project.</p>
-<p>I have encountered several issues along the way and there are still work to be done. I have started from scratch twice in this proccess and I am learning something new each time.</p>
-<p>Thank you to The Code Institute for material, instructions and connection to the community in Slack</p>
+
+<p>Special thank you to the Slack community for support and problem solving</p>
