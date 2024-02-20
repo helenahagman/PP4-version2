@@ -24,14 +24,14 @@ from .forms import (
     LoginForm,
 )
 
-
+# renders the homepage
 def index(request):
     """
     Renders the home view.
     """
     return render(request, 'index.html')
 
-
+# view for the personal trainer page
 class PersonalTrainerView(View):
     """
     Implementation for the PersonalTrainer view
@@ -39,7 +39,7 @@ class PersonalTrainerView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'personaltrainer.html')
 
-
+# view for the members only page 
 class MembersonlyView(View):
     """
     Implementation for the Membersonly view
@@ -50,7 +50,7 @@ class MembersonlyView(View):
         else:
             return redirect('login')
 
-
+# view for booking a session
 class BookView(LoginRequiredMixin, View):
     """
     Implementation for the book view
@@ -74,7 +74,7 @@ class BookView(LoginRequiredMixin, View):
 
         return render(request, self.template_name, {'form': form})
 
-
+# view for the member page
 class MemberView(View):
     """
     Implementation for the Member view
@@ -87,7 +87,7 @@ class MemberView(View):
     def post(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
-
+# view for the profile page, shows profile info and booking requests
 class ProfileView(LoginRequiredMixin, View):
     """
     Implementation for the User profile view
@@ -129,7 +129,7 @@ class ProfileView(LoginRequiredMixin, View):
             }
         )
 
-
+# function for sign-up form
 def signup(request):
     if request.method == 'POST':
         form = CustomSignupForm(request.POST)
@@ -141,7 +141,7 @@ def signup(request):
 
     return render(request, 'account/signup.html', {'form': form})
 
-
+# login functionality
 @csrf_protect
 def log_in(request):
     """
@@ -162,7 +162,7 @@ def log_in(request):
     }
     return render(request, 'login.html', context)
 
-
+# logout functionality
 @login_required
 def log_out(request):
     """
@@ -171,7 +171,7 @@ def log_out(request):
     logout(request)
     return redirect('index')
 
-
+# renders the users profile page
 @login_required
 def profile_view(request):
     user = request.user
@@ -186,7 +186,7 @@ def profile_view(request):
 
     return render(request, 'profile.html', context)
 
-
+# contact form submission and handling
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -205,7 +205,7 @@ def contact_view(request):
 
     return render(request, 'contact.html', {'form': form})
 
-
+# cancellation funtionality for sessions, deletes the booking when cancelled
 @login_required
 def book_session(request, session_id):
     session = get_object_or_404(Session, pk=session_id)
@@ -218,18 +218,7 @@ def book_session(request, session_id):
         messages.error(request, 'This session is already booked')
         return render(request, 'session_already_booked.html')
 
-
-def sessions_api(request):
-    sessions = Session.objects.filter(booked=False)
-    session_data = [{
-        'title': f"Session with {session.trainer_name}",
-        'start': f"{session.date}T{session.start_time}",
-        'end': f"{session.date}T{session.end_time}",
-        'url': f"/book/{session.id}/",
-    } for session in sessions]
-    return JsonResponse(session_data, safe=False)
-
-
+# view for the personal trainer page
 def personal_trainer(request):
     context = {
         'header': 'Personal Trainer',
@@ -240,7 +229,7 @@ def personal_trainer(request):
     }
     return render(request, 'personaltrainer.html', context)
 
-
+# view for the member page
 def members(request):
     context = {
         'header': 'Members',
@@ -251,7 +240,7 @@ def members(request):
     }
     return render(request, 'member.html', context)
 
-
+# view for the login page
 def login(request):
     context = {
         'header': 'Stay active',
@@ -262,7 +251,7 @@ def login(request):
     }
     return render(request, 'login.html', context)
 
-
+# view for the signup page
 def signup(request):
     context = {
         'header': 'Welcome',
@@ -272,7 +261,7 @@ def signup(request):
     }
     return render(request, 'account/signup.html', context)
 
-
+# view for the contact page
 def contact(request):
     context = {
         'header': 'Contact us',
@@ -283,7 +272,7 @@ def contact(request):
     }
     return render(request, 'contact.html', context)
 
-
+# view for the book session page
 def book(request):
     context = {
         'header': 'Book PT session',
@@ -293,7 +282,7 @@ def book(request):
     }
     return render(request, 'book.html', context)
 
-
+# view for the members only page, including for submission for comments
 @login_required
 def membersonly(request):
     if request.method == 'POST':
@@ -307,7 +296,7 @@ def membersonly(request):
         form = MemberCommentForm()
     return render(request, 'membersonly.html', {'form': form})
 
-
+# function to cancel a booking
 @login_required
 def cancel_booking(request, booking_id):
     if request.method == 'POST':

@@ -42,7 +42,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="z-index: 9999;">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand w-100" href="{% url 'index' %}">
+            <a class="navbar-brand w-40" href="{% url 'index' %}">
                 The Health Club Project
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
@@ -63,12 +63,13 @@
                             Personal Trainer
                         </a>
                     </li>
+                    {% if not user.is_authenticated %}
                     <li class="nav-item {% if active_page == 'members' %}active{% endif %}">
                         <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'member' %}">
                             Members
                         </a>
                     </li>
-                    
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'profile_view' %}">

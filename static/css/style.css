@@ -81,3 +81,25 @@ body {
 .footer a:hover {
     color: gray;
 }
+
+/* Ensures navbar items stay on one line on large screens */
+@media (min-width: 992px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin-right: 15px;
+        text-align: right;
+    }
+
+    .navbar-nav .nav-item:last-child {
+        margin-right: 0;
+    }
+
+    #navbarResponsive {
+        justify-content: flex-end;
+    }
+}

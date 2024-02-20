@@ -9,15 +9,17 @@ from .models import Contact, Booking, Profile, MemberComment
 from django.utils import timezone
 from datetime import date
 
+# get the custom user model
 User = get_user_model()
 
 
+# form for submitting the contact message
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['name_contact', 'email', 'contact_message']
 
-
+# function for time choices for booking time
 def time_choices():
     start = datetime.time(8, 0)
     end = datetime.time(22, 0)
@@ -32,7 +34,7 @@ def time_choices():
 
     return [(time, time) for time in times]
 
-
+# form for making a booking
 class BookingForm(forms.ModelForm):
     time = forms.ChoiceField(choices=time_choices(), widget=forms.Select)
 
@@ -60,13 +62,13 @@ class BookingForm(forms.ModelForm):
         if user:
             self.fields['email'].initial = user.email
 
-
+# form for editing the user profile
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['first_name', 'last_name', 'phone_number']
 
-
+# form for user sign in
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required information')
 
@@ -74,11 +76,11 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2',)
 
-
+# form for user login
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Email / Username')
 
-
+# form for submitting member comments
 class MemberCommentForm(forms.ModelForm):
     class Meta:
         model = MemberComment

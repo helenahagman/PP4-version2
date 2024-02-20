@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from personaltrainer.utils import num_validation, alpha_only
 
-
+# model to store booking information for personal trainer sessions
 class Booking(models.Model):
     """
     Create a booking request form for a personal trainer session
@@ -48,21 +48,21 @@ class Booking(models.Model):
     def get_approval_status_display(self):
         return dict(Booking.STATUS_CHOICES)[self.status]
 
-
+# model to represent personal trainers
 class Trainer(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
-
+# model to represent personal trainer session choices
 class SessionType(models.Model):
     type = models.CharField(max_length=100)
 
     def __str__(self):
         return self.type
 
-
+# model for storing contact messages from users
 class Contact(models.Model):
     """
     Model for contact messages.
@@ -82,7 +82,7 @@ class Contact(models.Model):
             f'on {self.created_on}'
         )
 
-
+# model to represent user profiles
 class Profile(models.Model):
     """
     User profile
@@ -101,7 +101,7 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user} profile'
 
-
+# model for member comments
 class MemberComment(models.Model):
     """
     Member comments
