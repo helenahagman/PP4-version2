@@ -195,6 +195,8 @@ I wanted to build a good looking website where the functionality for online book
 <h5>Basic site flow diagram was done using <a href="https://www.miro.com">Miro.com</a></h5>
 <img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708437609/healthclub-pp4/miro_site_flow_diagram_asdoa4.jpg">
 
+<h3>Admin page</h3>
+<h5>Only accessible with the admin login <img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708499721/healthclub-pp4/djangoadmin_shwnfo.jpg"></h5>
 
 <h3>Features</h3>
 <p>The website contains of three main pages: Home, Personal Trainer, Members. All main pages are accessible from the navigation menu on the top of the page.</p>
@@ -206,24 +208,29 @@ I wanted to build a good looking website where the functionality for online book
 <li>Start/home page:</li>
 <ul>
   <li>Short descriptive information along with an image followed by two postcards with link to Personal Trainer page and link to Log in or sign up.</li>
-  </ul>
+<img src ="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708499721/healthclub-pp4/home_qcvjf7.jpg">
+</ul>
 <li>Personal Trainer Page:</li>
 <ul>
   <li>Short descriptive information along with an image and a button to book session, below that two postcards with link to the contact form and the Member Page</li>
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708499721/healthclub-pp4/personaltrainer_wqqpqh.jpg">
 </ul>
   <li>Members Page:</li>
 <ul>
   <li>Short descriptive information along with an image, below that two postcards with link to the contact form and the login and sign up form</li>
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708499721/healthclub-pp4/members_ei5afo.jpg">
 </ul>
 
 <h5>These pages will only be displayed for a user that is currently logged in</h5>
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708499721/healthclub-pp4/navbarwhenlogedin_orzsii.jpg">
 <li>Members only Page:</li>
 <ul>
   <li>Will present the user with news and offers and link to book personal trainer sessions. Future feature will be a link where users can add photo and information on their journey to share with other users.</li>
+<img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708500301/healthclub-pp4/membersonly_jqwlok.jpg">
 </ul>
 <li>Profile Page:</li>
 <ul>
-  <li>The user is able to update and delete first name, last name and phone number on their profile. the user is also presented with their booking requests and the status (Pending, Accepted, Denied) they also have the option to delete a booking request</li> <img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708439082/healthclub-pp4/bookreq_y6a3ad.jpg">
+  <li>The user is able to update and delete first name, last name and phone number on their profile. the user is also presented with their booking requests and the status (Pending, Accepted, Denied) they also have the option to delete a booking request</li> <img src="https://res.cloudinary.com/dbjnqkn07/image/upload/v1708500393/healthclub-pp4/profilepage_x0i802.jpg">
 </ul>
 
 
