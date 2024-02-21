@@ -89,4 +89,4 @@ class LoginForm(AuthenticationForm):
 class MemberCommentForm(forms.ModelForm):
     class Meta:
         model = MemberComment
-        fields = ['comment', 'photo']
+        fields = ['comment',]

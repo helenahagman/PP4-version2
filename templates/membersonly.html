@@ -76,7 +76,7 @@
             <p class="card-text">
                 You are not alone, share your journey with fellow members.
             </p>
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" action="{% url 'share_journey' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -84,9 +84,6 @@
             {% for comment in comments %}
             <div class="comment">
                 <p>{{ comment.user.username }} said: {{ comment.comment }}</p>
-                {% if comment.photo %}
-                    <img src="{{ comment.photo.url }}" alt="Comment photo" style="width: 100px; height: auto;">
-                {% endif %}
             </div>
             {% endfor %}
         </div>

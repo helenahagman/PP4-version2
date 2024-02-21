@@ -14,7 +14,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.conf import settings
 from allauth.account.views import SignupView
 from allauth.account.forms import SignupForm
-from .models import Profile, Contact, Booking
+from .models import Profile, Contact, Booking, MemberComment
 from .forms import (
     ContactForm,
     BookingForm,
@@ -305,9 +305,22 @@ def cancel_booking(request, booking_id):
         booking = get_object_or_404(
             Booking, id=booking_id, user=request.user
             )
-        # booking.status = 'canceled'
-        # booking.save()
+        
         booking.delete()
         messages.success(request,
                         "Your booking has been successfully canceled.")
     return redirect('profile_view')
+
+# view for member comments
+def share_journey(request):
+    if request.method == 'POST':
+        form = MemberCommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user
+            comment.save()
+            return redirect('membersonly')
+    else:
+        form = MemberCommentForm()
+    comments = MemberComment.objects.all().order_by('-created_at')
+    return render(request, 'membersonly.html', {'form': form, 'comments': comments})

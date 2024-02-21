@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Contact, Booking, Trainer, SessionType
+from .models import Profile, Contact, Booking, Trainer, SessionType, MemberComment
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -39,3 +39,4 @@ class ProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(Trainer)
 admin.site.register(SessionType)
+admin.site.register(MemberComment)

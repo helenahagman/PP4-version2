@@ -9,6 +9,7 @@ from .views import (
     ProfileView,
     SignupView,
     cancel_booking,
+    share_journey
 )
 
 
@@ -37,4 +38,5 @@ urlpatterns = [
         cancel_booking,
         name='cancel_booking'
     ),
+    path('share-your-journey/', share_journey, name='share_journey'),
 ]
